@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="example.premuimcoffeeshop.controller.AdminDashboardController"
+      styleClass="root"
+      stylesheets="@styles/admin-dashboard.css">
+
+    <!-- Sidebar -->
+    <VBox styleClass="sidebar">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <Text text="Admin Dashboard" styleClass="sidebar-title"/>
+        <Button text="Orders" onAction="#showOrders" styleClass="nav-button"/>
+        <Button text="Users" onAction="#showUsers" styleClass="nav-button"/>
+        <Button text="Drinks" onAction="#showDrinks" styleClass="nav-button"/>
+        <Region VBox.vgrow="ALWAYS"/>
+        <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+    </VBox>
+
+    <!-- Content Area -->
+    <StackPane HBox.hgrow="ALWAYS">
+        <!-- Orders Section -->
+        <VBox fx:id="ordersSection" spacing="20" styleClass="content-area">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Text text="Orders Management" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="statusFilter" promptText="Filter by Status"/>
+                <DatePicker fx:id="dateFilter" promptText="Filter by Date"/>
+                <Button text="Refresh" onAction="#refreshOrders" styleClass="action-button"/>
+            </HBox>
+            
+            <TableView fx:id="ordersTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="orderNoColumn" text="Order No"/>
+                    <TableColumn fx:id="customerIdColumn" text="Customer ID"/>
+                    <TableColumn fx:id="drinkDetailsColumn" text="Drink Details"/>
+                    <TableColumn fx:id="orderDateTimeColumn" text="Date &amp; Time"/>
+                    <TableColumn fx:id="statusColumn" text="Status"/>
+                    <TableColumn fx:id="totalPriceColumn" text="Total"/>
+                    <TableColumn fx:id="confirmedByColumn" text="Confirmed By"/>
+                    <TableColumn fx:id="acceptedByColumn" text="Accepted By"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Users Section -->
+        <VBox fx:id="usersSection" spacing="20" styleClass="content-area" visible="false">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Text text="User Management" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Add User" onAction="#handleAddUser" styleClass="action-button"/>
+                <Button text="Edit User" onAction="#handleEditUser" styleClass="action-button"/>
+                <Button text="Delete User" onAction="#handleDeleteUser" styleClass="action-button, delete-button"/>
+            </HBox>
+            
+            <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="adminUsernameColumn" text="Username"/>
+                    <TableColumn fx:id="roleColumn" text="Role"/>
+                    <TableColumn fx:id="userStatusColumn" text="Status"/>
+                    <TableColumn fx:id="createdAtColumn" text="Created At"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Drinks Section -->
+        <VBox fx:id="drinksSection" spacing="20" styleClass="content-area" visible="false">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Text text="Drinks Management" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Add Drink" onAction="#handleAddDrink" styleClass="action-button"/>
+                <Button text="Edit Drink" onAction="#handleEditDrink" styleClass="action-button"/>
+                <Button text="Delete Drink" onAction="#handleDeleteDrink" styleClass="action-button, delete-button"/>
+            </HBox>
+            
+            <TableView fx:id="drinksTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="drinkIdColumn" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="drinkNameColumn" text="Name" prefWidth="150"/>
+                    <TableColumn fx:id="hotPriceColumn" text="Hot Price" prefWidth="100"/>
+                    <TableColumn fx:id="icedPriceColumn" text="Iced Price" prefWidth="100"/>
+                    <TableColumn fx:id="frappeePriceColumn" text="Frappee Price" prefWidth="100"/>
+                    <TableColumn fx:id="imagePathColumn" text="Image Path" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Settings Section -->
+        <VBox fx:id="settingsSection" spacing="20" styleClass="content-area" visible="false">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Text text="Settings" styleClass="section-title"/>
+            </HBox>
+            
+            <VBox spacing="15" styleClass="settings-container">
+                <HBox spacing="20" alignment="CENTER_LEFT">
+                    <Label text="Dark Mode" styleClass="setting-label"/>
+                    <ToggleButton fx:id="darkModeToggle" onAction="#toggleDarkMode"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </StackPane>
+</HBox>

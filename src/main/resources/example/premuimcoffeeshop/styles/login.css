@@ -1,0 +1,88 @@
+/* Root styles */
+.root {
+    -fx-background-color: transparent;
+}
+
+/* Dark Overlay */
+.dark-overlay {
+    -fx-background-color: rgba(0, 0, 0, 0.6);
+    -fx-min-width: 800;
+    -fx-min-height: 600;
+}
+
+/* Login Container */
+.login-container {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-padding: 30px;
+    -fx-background-radius: 15;
+    -fx-min-width: 350px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 5);
+}
+
+/* Title Styles */
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C3E50;
+}
+
+.subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7F8C8D;
+}
+
+/* Field Labels */
+.field-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #2C3E50;
+    -fx-font-weight: bold;
+}
+
+/* Text Fields */
+.text-field {
+    -fx-background-color: #F7F9FC;
+    -fx-border-color: #E1E8ED;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-size: 13px;
+    -fx-prompt-text-fill: #95A5A6;
+}
+
+.text-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #3498DB;
+    -fx-border-width: 1.5px;
+}
+
+/* Login Button */
+.login-button {
+    -fx-background-color: #2980B9;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-min-width: 100%;
+}
+
+.login-button:hover {
+    -fx-background-color: #3498DB;
+}
+
+.login-button:pressed {
+    -fx-background-color: #2471A3;
+}
+
+/* Error Label */
+.error-label {
+    -fx-text-fill: #E74C3C;
+    -fx-font-size: 12px;
+    -fx-wrap-text: true;
+}
+
+/* Logo */
+.logo {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+} 
